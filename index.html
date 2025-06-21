@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳动的爱心</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        heart: '#FF4D6D',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .heart-beat {
+                animation: heartBeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            .heart-beat-hover {
+                transition: transform 0.3s ease;
+            }
+            .heart-beat-hover:hover {
+                animation: heartBeat 0.6s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.2); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.2); }
+            70% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-pink-50 to-red-50 flex items-center justify-center overflow-hidden">
+    <div class="relative">
+        <!-- 主要爱心 -->
+        <div class="heart-beat text-heart text-[150px] md:text-[250px] lg:text-[350px]">
+            <i class="fa fa-heart"></i>
+        </div>
+        
+        <!-- 装饰元素 -->
+        <div class="absolute -top-10 -left-10 text-heart/30 text-[80px] md:text-[120px] heart-beat-hover">
+            <i class="fa fa-heart"></i>
+        </div>
+        <div class="absolute -bottom-5 -right-5 text-heart/20 text-[100px] md:text-[150px] heart-beat-hover">
+            <i class="fa fa-heart"></i>
+        </div>
+        
+        <!-- 文本信息 -->
+        <div class="absolute bottom-[-80px] left-1/2 transform -translate-x-1/2 text-center">
+            <h2 class="text-heart font-bold text-xl md:text-2xl mb-2">Love is in the air</h2>
+            <p class="text-gray-600 text-sm md:text-base">Hover on hearts for extra beats</p>
+        </div>
+    </div>
+    
+    <!-- 背景装饰 -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-[10%] left-[15%] text-heart/10 text-[50px] heart-beat" style="animation-delay: 0.2s">
+            <i class="fa fa-heart"></i>
+        </div>
+        <div class="absolute top-[20%] right-[20%] text-heart/10 text-[60px] heart-beat" style="animation-delay: 0.5s">
+            <i class="fa fa-heart"></i>
+        </div>
+        <div class="absolute bottom-[25%] left-[25%] text-heart/10 text-[40px] heart-beat" style="animation-delay: 0.8s">
+            <i class="fa fa-heart"></i>
+        </div>
+        <div class="absolute bottom-[30%] right-[15%] text-heart/10 text-[55px] heart-beat" style="animation-delay: 0.3s">
+            <i class="fa fa-heart"></i>
+        </div>
+    </div>
+</body>
+</html>
+    
